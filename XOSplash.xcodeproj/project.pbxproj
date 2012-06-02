@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		083276C51579D1A500E68689 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083276C41579D1A500E68689 /* UIKit.framework */; };
+		083276C71579D1A500E68689 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083276C61579D1A500E68689 /* Foundation.framework */; };
+		083276C91579D1A500E68689 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083276C81579D1A500E68689 /* CoreGraphics.framework */; };
+		083276CF1579D1A500E68689 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 083276CD1579D1A500E68689 /* InfoPlist.strings */; };
+		083276D11579D1A500E68689 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 083276D01579D1A500E68689 /* main.m */; };
+		083276D51579D1A500E68689 /* XOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 083276D41579D1A500E68689 /* XOAppDelegate.m */; };
+		083276D81579D1A500E68689 /* XOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083276D71579D1A500E68689 /* XOViewController.m */; };
+		083276DB1579D1A500E68689 /* XOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083276D91579D1A500E68689 /* XOViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		083276C01579D1A500E68689 /* XOSplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XOSplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		083276C41579D1A500E68689 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		083276C61579D1A500E68689 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		083276C81579D1A500E68689 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		083276CC1579D1A500E68689 /* XOSplash-Info.plist */ = {isa = PBXFileReference; path = "XOSplash-Info.plist"; sourceTree = "<group>"; };
+		083276CE1579D1A500E68689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		083276D01579D1A500E68689 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		083276D21579D1A500E68689 /* XOSplash-Prefix.pch */ = {isa = PBXFileReference; path = "XOSplash-Prefix.pch"; sourceTree = "<group>"; };
+		083276D31579D1A500E68689 /* XOAppDelegate.h */ = {isa = PBXFileReference; path = XOAppDelegate.h; sourceTree = "<group>"; };
+		083276D41579D1A500E68689 /* XOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOAppDelegate.m; sourceTree = "<group>"; };
+		083276D61579D1A500E68689 /* XOViewController.h */ = {isa = PBXFileReference; path = XOViewController.h; sourceTree = "<group>"; };
+		083276D71579D1A500E68689 /* XOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOViewController.m; sourceTree = "<group>"; };
+		083276DA1579D1A500E68689 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/XOViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		083276BD1579D1A500E68689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				083276C51579D1A500E68689 /* UIKit.framework in Frameworks */,
+				083276C71579D1A500E68689 /* Foundation.framework in Frameworks */,
+				083276C91579D1A500E68689 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		083276B51579D1A500E68689 = {
+			isa = PBXGroup;
+			children = (
+				083276CA1579D1A500E68689 /* XOSplash */,
+				083276C31579D1A500E68689 /* Frameworks */,
+				083276C11579D1A500E68689 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		083276C11579D1A500E68689 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				083276C01579D1A500E68689 /* XOSplash.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		083276C31579D1A500E68689 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				083276C41579D1A500E68689 /* UIKit.framework */,
+				083276C61579D1A500E68689 /* Foundation.framework */,
+				083276C81579D1A500E68689 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		083276CA1579D1A500E68689 /* XOSplash */ = {
+			isa = PBXGroup;
+			children = (
+				083276D31579D1A500E68689 /* XOAppDelegate.h */,
+				083276D41579D1A500E68689 /* XOAppDelegate.m */,
+				083276D61579D1A500E68689 /* XOViewController.h */,
+				083276D71579D1A500E68689 /* XOViewController.m */,
+				083276D91579D1A500E68689 /* XOViewController.xib */,
+				083276CB1579D1A500E68689 /* Supporting Files */,
+			);
+			path = XOSplash;
+			sourceTree = "<group>";
+		};
+		083276CB1579D1A500E68689 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				083276CC1579D1A500E68689 /* XOSplash-Info.plist */,
+				083276CD1579D1A500E68689 /* InfoPlist.strings */,
+				083276D01579D1A500E68689 /* main.m */,
+				083276D21579D1A500E68689 /* XOSplash-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		083276BF1579D1A500E68689 /* XOSplash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 083276DE1579D1A500E68689 /* Build configuration list for PBXNativeTarget "XOSplash" */;
+			buildPhases = (
+				083276BC1579D1A500E68689 /* Sources */,
+				083276BD1579D1A500E68689 /* Frameworks */,
+				083276BE1579D1A500E68689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XOSplash;
+			productName = XOSplash;
+			productReference = 083276C01579D1A500E68689 /* XOSplash.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		083276B71579D1A500E68689 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = XO;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Madefire;
+			};
+			buildConfigurationList = 083276BA1579D1A500E68689 /* Build configuration list for PBXProject "XOSplash" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 083276B51579D1A500E68689;
+			productRefGroup = 083276C11579D1A500E68689 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				083276BF1579D1A500E68689 /* XOSplash */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		083276BE1579D1A500E68689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				083276CF1579D1A500E68689 /* InfoPlist.strings in Resources */,
+				083276DB1579D1A500E68689 /* XOViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		083276BC1579D1A500E68689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				083276D11579D1A500E68689 /* main.m in Sources */,
+				083276D51579D1A500E68689 /* XOAppDelegate.m in Sources */,
+				083276D81579D1A500E68689 /* XOViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		083276CD1579D1A500E68689 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				083276CE1579D1A500E68689 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		083276D91579D1A500E68689 /* XOViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				083276DA1579D1A500E68689 /* en */,
+			);
+			name = XOViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		083276DC1579D1A500E68689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		083276DD1579D1A500E68689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		083276DF1579D1A500E68689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XOSplash/XOSplash-Prefix.pch";
+				INFOPLIST_FILE = "XOSplash/XOSplash-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		083276E01579D1A500E68689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XOSplash/XOSplash-Prefix.pch";
+				INFOPLIST_FILE = "XOSplash/XOSplash-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		083276BA1579D1A500E68689 /* Build configuration list for PBXProject "XOSplash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				083276DC1579D1A500E68689 /* Debug */,
+				083276DD1579D1A500E68689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		083276DE1579D1A500E68689 /* Build configuration list for PBXNativeTarget "XOSplash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				083276DF1579D1A500E68689 /* Debug */,
+				083276E01579D1A500E68689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 083276B71579D1A500E68689 /* Project object */;
+}
