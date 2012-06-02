@@ -15,6 +15,10 @@
 		083276D51579D1A500E68689 /* XOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 083276D41579D1A500E68689 /* XOAppDelegate.m */; };
 		083276D81579D1A500E68689 /* XOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083276D71579D1A500E68689 /* XOViewController.m */; };
 		083276DB1579D1A500E68689 /* XOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083276D91579D1A500E68689 /* XOViewController.xib */; };
+		083276E31579D2BF00E68689 /* splash.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 083276E21579D2BF00E68689 /* splash.mp4 */; };
+		083276E51579D33900E68689 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083276E41579D33900E68689 /* MediaPlayer.framework */; };
+		083276E81579D3CD00E68689 /* XOSplashVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083276E71579D3CD00E68689 /* XOSplashVideoController.m */; };
+		083276F0157A550500E68689 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 083276EF157A550500E68689 /* Default-Portrait~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +26,20 @@
 		083276C41579D1A500E68689 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		083276C61579D1A500E68689 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		083276C81579D1A500E68689 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		083276CC1579D1A500E68689 /* XOSplash-Info.plist */ = {isa = PBXFileReference; path = "XOSplash-Info.plist"; sourceTree = "<group>"; };
+		083276CC1579D1A500E68689 /* XOSplash-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XOSplash-Info.plist"; sourceTree = "<group>"; };
 		083276CE1579D1A500E68689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		083276D01579D1A500E68689 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		083276D21579D1A500E68689 /* XOSplash-Prefix.pch */ = {isa = PBXFileReference; path = "XOSplash-Prefix.pch"; sourceTree = "<group>"; };
-		083276D31579D1A500E68689 /* XOAppDelegate.h */ = {isa = PBXFileReference; path = XOAppDelegate.h; sourceTree = "<group>"; };
+		083276D21579D1A500E68689 /* XOSplash-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XOSplash-Prefix.pch"; sourceTree = "<group>"; };
+		083276D31579D1A500E68689 /* XOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XOAppDelegate.h; sourceTree = "<group>"; };
 		083276D41579D1A500E68689 /* XOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOAppDelegate.m; sourceTree = "<group>"; };
-		083276D61579D1A500E68689 /* XOViewController.h */ = {isa = PBXFileReference; path = XOViewController.h; sourceTree = "<group>"; };
+		083276D61579D1A500E68689 /* XOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XOViewController.h; sourceTree = "<group>"; };
 		083276D71579D1A500E68689 /* XOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOViewController.m; sourceTree = "<group>"; };
 		083276DA1579D1A500E68689 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/XOViewController.xib; sourceTree = "<group>"; };
+		083276E21579D2BF00E68689 /* splash.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = splash.mp4; path = Resources/splash.mp4; sourceTree = "<group>"; };
+		083276E41579D33900E68689 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		083276E61579D3CD00E68689 /* XOSplashVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOSplashVideoController.h; sourceTree = "<group>"; };
+		083276E71579D3CD00E68689 /* XOSplashVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOSplashVideoController.m; sourceTree = "<group>"; };
+		083276EF157A550500E68689 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +50,7 @@
 				083276C51579D1A500E68689 /* UIKit.framework in Frameworks */,
 				083276C71579D1A500E68689 /* Foundation.framework in Frameworks */,
 				083276C91579D1A500E68689 /* CoreGraphics.framework in Frameworks */,
+				083276E51579D33900E68689 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +60,7 @@
 		083276B51579D1A500E68689 = {
 			isa = PBXGroup;
 			children = (
+				083276EF157A550500E68689 /* Default-Portrait~ipad.png */,
 				083276CA1579D1A500E68689 /* XOSplash */,
 				083276C31579D1A500E68689 /* Frameworks */,
 				083276C11579D1A500E68689 /* Products */,
@@ -67,9 +78,10 @@
 		083276C31579D1A500E68689 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				083276C41579D1A500E68689 /* UIKit.framework */,
-				083276C61579D1A500E68689 /* Foundation.framework */,
 				083276C81579D1A500E68689 /* CoreGraphics.framework */,
+				083276C61579D1A500E68689 /* Foundation.framework */,
+				083276E41579D33900E68689 /* MediaPlayer.framework */,
+				083276C41579D1A500E68689 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -77,12 +89,15 @@
 		083276CA1579D1A500E68689 /* XOSplash */ = {
 			isa = PBXGroup;
 			children = (
+				083276E11579D22000E68689 /* Resources */,
+				083276CB1579D1A500E68689 /* Supporting Files */,
 				083276D31579D1A500E68689 /* XOAppDelegate.h */,
 				083276D41579D1A500E68689 /* XOAppDelegate.m */,
+				083276E61579D3CD00E68689 /* XOSplashVideoController.h */,
+				083276E71579D3CD00E68689 /* XOSplashVideoController.m */,
 				083276D61579D1A500E68689 /* XOViewController.h */,
 				083276D71579D1A500E68689 /* XOViewController.m */,
 				083276D91579D1A500E68689 /* XOViewController.xib */,
-				083276CB1579D1A500E68689 /* Supporting Files */,
 			);
 			path = XOSplash;
 			sourceTree = "<group>";
@@ -90,12 +105,20 @@
 		083276CB1579D1A500E68689 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				083276CC1579D1A500E68689 /* XOSplash-Info.plist */,
 				083276CD1579D1A500E68689 /* InfoPlist.strings */,
 				083276D01579D1A500E68689 /* main.m */,
+				083276CC1579D1A500E68689 /* XOSplash-Info.plist */,
 				083276D21579D1A500E68689 /* XOSplash-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		083276E11579D22000E68689 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				083276E21579D2BF00E68689 /* splash.mp4 */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +149,7 @@
 			attributes = {
 				CLASSPREFIX = XO;
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = Madefire;
+				ORGANIZATIONNAME = RossMcFarland;
 			};
 			buildConfigurationList = 083276BA1579D1A500E68689 /* Build configuration list for PBXProject "XOSplash" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -152,6 +175,8 @@
 			files = (
 				083276CF1579D1A500E68689 /* InfoPlist.strings in Resources */,
 				083276DB1579D1A500E68689 /* XOViewController.xib in Resources */,
+				083276E31579D2BF00E68689 /* splash.mp4 in Resources */,
+				083276F0157A550500E68689 /* Default-Portrait~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +190,7 @@
 				083276D11579D1A500E68689 /* main.m in Sources */,
 				083276D51579D1A500E68689 /* XOAppDelegate.m in Sources */,
 				083276D81579D1A500E68689 /* XOViewController.m in Sources */,
+				083276E81579D3CD00E68689 /* XOSplashVideoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
