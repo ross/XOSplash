@@ -1,5 +1,5 @@
 //
-//  XOSplashVideoPlayer.m
+//  XOSplashVideoController.m
 //  XOSplash
 //
 //  Created by Ross McFarland on 6/1/12.
