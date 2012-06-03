@@ -18,14 +18,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    self.window = [[UIWindow alloc] initWithFrame:frame];
+
+    NSString *videoName = @"splash-iphone";
+    NSString *imageName = @"Default.png";
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        videoName = @"splash-ipad";
+        imageName = @"Default-Portrait~ipad.png";
+    }
     
     // our video
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"splash" withExtension:@"mp4"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:videoName withExtension:@"mp4"];
     // our splash controller
     XOSplashVideoController *splashVideoController = 
         [[XOSplashVideoController alloc] initWithVideoURL:url 
-                                                imageName:@"Default-Portrait~ipad.png"
+                                                imageName:imageName
                                                  delegate:self];
     // we'll start out with the spash view controller in the window
     self.window.rootViewController = splashVideoController;

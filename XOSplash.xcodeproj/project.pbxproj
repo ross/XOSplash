@@ -15,10 +15,12 @@
 		083276D51579D1A500E68689 /* XOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 083276D41579D1A500E68689 /* XOAppDelegate.m */; };
 		083276D81579D1A500E68689 /* XOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083276D71579D1A500E68689 /* XOViewController.m */; };
 		083276DB1579D1A500E68689 /* XOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083276D91579D1A500E68689 /* XOViewController.xib */; };
-		083276E31579D2BF00E68689 /* splash.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 083276E21579D2BF00E68689 /* splash.mp4 */; };
 		083276E51579D33900E68689 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083276E41579D33900E68689 /* MediaPlayer.framework */; };
 		083276E81579D3CD00E68689 /* XOSplashVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083276E71579D3CD00E68689 /* XOSplashVideoController.m */; };
 		083276F0157A550500E68689 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 083276EF157A550500E68689 /* Default-Portrait~ipad.png */; };
+		083276FC157AF31300E68689 /* splash-ipad.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 083276FA157AF31300E68689 /* splash-ipad.mp4 */; };
+		083276FD157AF31300E68689 /* splash-iphone.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 083276FB157AF31300E68689 /* splash-iphone.mp4 */; };
+		08327700157AFB0000E68689 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 083276FE157AFA5400E68689 /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +37,13 @@
 		083276D61579D1A500E68689 /* XOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XOViewController.h; sourceTree = "<group>"; };
 		083276D71579D1A500E68689 /* XOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOViewController.m; sourceTree = "<group>"; };
 		083276DA1579D1A500E68689 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/XOViewController.xib; sourceTree = "<group>"; };
-		083276E21579D2BF00E68689 /* splash.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = splash.mp4; path = Resources/splash.mp4; sourceTree = "<group>"; };
 		083276E41579D33900E68689 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		083276E61579D3CD00E68689 /* XOSplashVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOSplashVideoController.h; sourceTree = "<group>"; };
 		083276E71579D3CD00E68689 /* XOSplashVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOSplashVideoController.m; sourceTree = "<group>"; };
 		083276EF157A550500E68689 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		083276FA157AF31300E68689 /* splash-ipad.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "splash-ipad.mp4"; path = "Resources/splash-ipad.mp4"; sourceTree = "<group>"; };
+		083276FB157AF31300E68689 /* splash-iphone.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "splash-iphone.mp4"; path = "Resources/splash-iphone.mp4"; sourceTree = "<group>"; };
+		083276FE157AFA5400E68689 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		083276B51579D1A500E68689 = {
 			isa = PBXGroup;
 			children = (
+				083276FE157AFA5400E68689 /* Default.png */,
 				083276EF157A550500E68689 /* Default-Portrait~ipad.png */,
 				083276CA1579D1A500E68689 /* XOSplash */,
 				083276C31579D1A500E68689 /* Frameworks */,
@@ -116,7 +121,8 @@
 		083276E11579D22000E68689 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				083276E21579D2BF00E68689 /* splash.mp4 */,
+				083276FA157AF31300E68689 /* splash-ipad.mp4 */,
+				083276FB157AF31300E68689 /* splash-iphone.mp4 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -175,8 +181,10 @@
 			files = (
 				083276CF1579D1A500E68689 /* InfoPlist.strings in Resources */,
 				083276DB1579D1A500E68689 /* XOViewController.xib in Resources */,
-				083276E31579D2BF00E68689 /* splash.mp4 in Resources */,
 				083276F0157A550500E68689 /* Default-Portrait~ipad.png in Resources */,
+				083276FC157AF31300E68689 /* splash-ipad.mp4 in Resources */,
+				083276FD157AF31300E68689 /* splash-iphone.mp4 in Resources */,
+				08327700157AFB0000E68689 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +278,7 @@
 				GCC_PREFIX_HEADER = "XOSplash/XOSplash-Prefix.pch";
 				INFOPLIST_FILE = "XOSplash/XOSplash-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -281,6 +290,7 @@
 				GCC_PREFIX_HEADER = "XOSplash/XOSplash-Prefix.pch";
 				INFOPLIST_FILE = "XOSplash/XOSplash-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -304,6 +314,7 @@
 				083276E01579D1A500E68689 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
