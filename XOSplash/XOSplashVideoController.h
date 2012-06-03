@@ -32,6 +32,16 @@
 
 @end
 
+/** Controller that enables integration of seamless splash video on 
+ * iPad and iPhone. Videos should be at the full resolution of the device. 
+ * It is recommended that you take a screenshot of the first video frame using
+ * the simulator to get an exact match between the splash image and video. This
+ * can be accomplished by commenting out the play call in the load notification.
+ * You'll need to remove the status bar area (20px) from the iPad screenshot to
+ * get the size required, 1004px for portrait. The procedure for iPhone is
+ * slightly different, you'll need to remove the status bar and fill it in with
+ * the video's background (color) to leave a full-size image.
+ */
 @interface XOSplashVideoController : UIViewController
 
 @property (nonatomic, strong) NSObject<XOSplashVideoDelegate> * delegate;
