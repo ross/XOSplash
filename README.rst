@@ -29,4 +29,4 @@ XOSplashVideoController.[hm] and adapt the code in XOAppDelegate.m to your
 needs. 
 
 More detailed information available at:
-    http://www.xormedia.com/seamless-ios-splash-video
+    http://www.xormedia.com/seamless-ios-splash-video.html
