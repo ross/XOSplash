@@ -84,6 +84,10 @@
     // and play it
     [_player play];
 
+    // take the background image out, we're done with it
+    [_backgroundImageView removeFromSuperview];
+    _backgroundImageView = nil;
+
     // tell the delegate that the video has loaded
     [_delegate splashVideoLoaded:self];
 }
@@ -97,10 +101,6 @@
 
     // tell our delegate that we're done playing
     [_delegate splashVideoLoaded:self];
-
-    // take the background image out, we're done with it
-    [_backgroundImageView removeFromSuperview];
-    _backgroundImageView = nil;
 
     // take our player out of the window, we're done with it
     [_player.view removeFromSuperview];
