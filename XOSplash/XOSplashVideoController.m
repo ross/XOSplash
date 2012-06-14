@@ -100,7 +100,7 @@
                                                   object:_player];
 
     // tell our delegate that we're done playing
-    [_delegate splashVideoLoaded:self];
+    [_delegate splashVideoComplete:self];
 
     // take our player out of the window, we're done with it
     [_player.view removeFromSuperview];
