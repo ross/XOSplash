@@ -39,6 +39,7 @@
             backgroundFrame.size.height -= [[UIApplication sharedApplication] statusBarFrame].size.height;
         }
         _backgroundImageView.frame = backgroundFrame;
+        _backgroundImageView.userInteractionEnabled = NO;
         [window addSubview:_backgroundImageView];
         
         _player = [[MPMoviePlayerController alloc] initWithContentURL:url];
@@ -54,24 +55,25 @@
         // will get rid of it
         UIImageView *playerBackground = [[UIImageView alloc] initWithImage:image];
         playerBackground.frame = backgroundFrame;
+        _player.view.userInteractionEnabled = NO;
         [_player.backgroundView addSubview:playerBackground];
 
         // tell us when the video has loaded
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(splashLoadDidChange:)
+                                                 selector:@selector(splashStateDidChange:)
                                                      name:MPMoviePlayerLoadStateDidChangeNotification
                                                    object:_player];
-        
+
         // tell us when the video has finished playing
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(splashDidFinished:)
+                                                 selector:@selector(splashDidFinish:)
                                                      name:MPMoviePlayerPlaybackDidFinishNotification
                                                    object:_player];
     }
     return self;
 }
 
-- (void)splashLoadDidChange:(NSNotification *)notification
+- (void)splashStateDidChange:(NSNotification *)notification
 {
     // we don't need this again
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -92,7 +94,7 @@
     [_delegate splashVideoLoaded:self];
 }
 
-- (void)splashDidFinished:(NSNotification *)notification
+- (void)splashDidFinish:(NSNotification *)notification
 {
     // we don't need this again
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -105,6 +107,20 @@
     // take our player out of the window, we're done with it
     [_player.view removeFromSuperview];
     _player = nil;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (_backgroundImageView) {
+        // we haven't started playing yet, unlikely but just in case, will call play, but 
+        // since we're not loaded that's not an issue
+        [self splashStateDidChange:nil];
+        [self splashDidFinish:nil];
+    } else {
+        // we've played so stop us un case we haven't stopped ourselves.
+        [_player stop];
+        // ^ will call splashDidFinish for us
+    }
 }
 
 @end
