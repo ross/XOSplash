@@ -21,20 +21,27 @@
     CGRect frame = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:frame];
 
-    NSString *videoName = @"splash-iphone";
-    NSString *imageName = @"Default.png";
+    NSString *portraitVideoName = @"splash-iphone";
+    NSString *portraitImageName = @"Default.png";
+    NSString *landscapeVideoName = @"splash-iphone-landscape";
+    NSString *landscapeImageName = @"Default-Landscape.png";
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        videoName = @"splash-ipad";
-        imageName = @"Default-Portrait~ipad.png";
+        portraitVideoName = @"splash-ipad";
+        portraitImageName = @"Default-Portrait~ipad.png";
+        landscapeVideoName = @"splash-ipad-landscape";
+        landscapeImageName = @"Default-Landscape~ipad.png";
     }
     
     // our video
-    NSURL *url = [[NSBundle mainBundle] URLForResource:videoName withExtension:@"mp4"];
+    NSURL *portraitUrl = [[NSBundle mainBundle] URLForResource:portraitVideoName withExtension:@"mp4"];
+    NSURL *landscapeUrl = [[NSBundle mainBundle] URLForResource:landscapeVideoName withExtension:@"mp4"];
     // our splash controller
     XOSplashVideoController *splashVideoController = 
-        [[XOSplashVideoController alloc] initWithVideoURL:url 
-                                                imageName:imageName
-                                                 delegate:self];
+        [[XOSplashVideoController alloc] initWithVideoPortraitUrl:portraitUrl
+                                                portraitImageName:portraitImageName
+                                                     landscapeUrl:landscapeUrl
+                                               landscapeImageName:landscapeImageName
+                                                         delegate:self];
     // we'll start out with the spash view controller in the window
     self.window.rootViewController = splashVideoController;
 

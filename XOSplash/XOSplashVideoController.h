@@ -52,9 +52,12 @@
  * be appropriate for the current device and orientation. The video 
  * needs to match the screen's resolution and the image should
  * be one of the ones configured in the target summary, the
- * one that matches the current device and orientation. */
-- (id)initWithVideoURL:(NSURL *)url
-             imageName:(NSString *)imageName
-              delegate:(NSObject<XOSplashVideoDelegate> *)delegate;
+ * one that matches the current device and orientation. Orientations 
+ * support will be dictated by the urls and image names passed in. */
+- (id)initWithVideoPortraitUrl:(NSURL *)portraitUrl
+             portraitImageName:(NSString *)portraitImageName
+                  landscapeUrl:(NSURL *)landscapeUrl
+            landscapeImageName:(NSString *)landscapeImageName
+                      delegate:(NSObject<XOSplashVideoDelegate> *)delegate;
 
 @end
