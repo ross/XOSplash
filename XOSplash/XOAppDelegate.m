@@ -23,8 +23,8 @@
 
     NSString *portraitVideoName = @"splash-iphone";
     NSString *portraitImageName = @"Default.png";
-    NSString *landscapeVideoName = @"splash-iphone-landscape";
-    NSString *landscapeImageName = @"Default-Landscape.png";
+    NSString *landscapeVideoName = nil; // n/a
+    NSString *landscapeImageName = nil; // n/a
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         portraitVideoName = @"splash-ipad";
         portraitImageName = @"Default-Portrait~ipad.png";
