@@ -23,9 +23,12 @@
     self = [super init];
     if (self) {
         _delegate = delegate;
-        
+
+        self.wantsFullScreenLayout = YES;
+
         CGRect frame = [[UIScreen mainScreen] bounds];
-        UIWindow *window = [UIApplication sharedApplication].delegate.window;
+        UIApplication *application = [UIApplication sharedApplication];
+        UIWindow *window = application.delegate.window;
 
         // put a background image in the window, so that it'll show as soon as the splash
         // goes away, this fixes most of the black flash
@@ -33,10 +36,9 @@
         _backgroundImageView = [[UIImageView alloc] initWithImage:image];
         CGRect backgroundFrame = frame;
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            // shift the background frame down to allow for the status bar, which shows and 
-            // takes up "sapce" during the splash image on ipad
-            backgroundFrame.origin.y += [[UIApplication sharedApplication] statusBarFrame].size.height;
-            backgroundFrame.size.height -= [[UIApplication sharedApplication] statusBarFrame].size.height;
+            // shift the background frame down to account for the 20px cut out of the image
+            backgroundFrame.origin.y += 20;
+            backgroundFrame.size.height -= 20;
         }
         _backgroundImageView.frame = backgroundFrame;
         _backgroundImageView.userInteractionEnabled = NO;
