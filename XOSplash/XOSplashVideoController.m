@@ -15,6 +15,7 @@
     NSURL *_landscapeUrl;
     NSString *_landscapeImageName;
     MPMoviePlayerController *_player;
+    UIImageView *_playerBackground;
     UIImageView *_backgroundImageView;
 }
 
@@ -115,18 +116,19 @@
     _player.useApplicationAudioSession = NO;
     _player.controlStyle = MPMovieControlStyleNone;
     _player.scalingMode = MPMovieScalingModeNone;
+    _player.allowsAirPlay = NO;
     // we're going to install it once it's loaded and play it then
     _player.shouldAutoplay = NO;
     // there's still a little bit of black flash left when the player is inserted
     // as it starts to play, adding the splash image to the background of the player
     // will get rid of it
-    UIImageView *playerBackground = [[UIImageView alloc] initWithImage:image];
+    _playerBackground = [[UIImageView alloc] initWithImage:image];
     CGSize imageSize = image.size;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        playerBackground.frame = CGRectMake(0, 20, imageSize.width, imageSize.height);
+        _playerBackground.frame = CGRectMake(0, 20, imageSize.width, imageSize.height);
     }
     _player.view.userInteractionEnabled = NO;
-    [_player.backgroundView addSubview:playerBackground];
+    [_player.backgroundView addSubview:_playerBackground];
     
     // tell us when the video has loaded
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -156,6 +158,9 @@
     // and play it
     [_player play];
 
+    [_playerBackground removeFromSuperview];
+    _playerBackground = nil;
+
     // take the background image out, we're done with it
     [_backgroundImageView removeFromSuperview];
     _backgroundImageView = nil;
@@ -181,7 +186,7 @@
     [UIApplication sharedApplication].delegate.window.transform = CGAffineTransformIdentity;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if (_backgroundImageView) {
         // we haven't started playing yet, unlikely but just in case, will call play, but 
