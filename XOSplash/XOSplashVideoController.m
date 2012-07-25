@@ -53,7 +53,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    if (_backgroundImageView) {
+    if (_player.playbackState == MPMoviePlaybackStatePlaying) {
         // once we've started don't allow rotates
         return NO;
     }
@@ -132,20 +132,20 @@
     
     // tell us when the video has loaded
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(splashStateDidChange:)
+                                             selector:@selector(splashLoadStateDidChange:)
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
                                                object:_player];
     
     // tell us when the video has finished playing
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(splashDidFinish:)
-                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                             selector:@selector(splashPlaybackStateDidChange:)
+                                                 name:MPMoviePlayerPlaybackStateDidChangeNotification
                                                object:_player];
-    
+
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
 
-- (void)splashStateDidChange:(NSNotification *)notification
+- (void)splashLoadStateDidChange:(NSNotification *)notification
 {
     // we don't need this again
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -169,12 +169,26 @@
     [_delegate splashVideoLoaded:self];
 }
 
-- (void)splashDidFinish:(NSNotification *)notification
+- (void)splashPlaybackStateDidChange:(NSNotification *)notification
 {
+    // first time this is called, playback state will be MPMoviePlaybackStatePlaying
+    // so we ignore that case.
+    // second time, upon finish of playback, state will be MPMoviePlaybackStatePaused
+    // if interrupted, state will be MPMoviePlaybackStatePaused
+    // both of those cases are treated as if splash playback finished
+    // MPMoviePlaybackStateInterrupted, MPMoviePlaybackStateStopped are added
+    // to the or condition as a precaution
+    if (_player.playbackState == MPMoviePlaybackStatePlaying) {
+        return;
+    }
+
     // we don't need this again
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                    name:MPMoviePlayerPlaybackStateDidChangeNotification
                                                   object:_player];
+
+    // we've played so stop us un case we haven't stopped ourselves.
+    [_player stop];
 
     // tell our delegate that we're done playing
     [_delegate splashVideoComplete:self];
@@ -191,8 +205,8 @@
     if (_backgroundImageView) {
         // we haven't started playing yet, unlikely but just in case, will call play, but 
         // since we're not loaded that's not an issue
-        [self splashStateDidChange:nil];
-        [self splashDidFinish:nil];
+        [self splashLoadStateDidChange:nil];
+        [self splashPlaybackStateDidChange:nil];
     } else {
         // we've played so stop us un case we haven't stopped ourselves.
         [_player stop];
