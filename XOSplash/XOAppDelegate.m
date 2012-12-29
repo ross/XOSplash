@@ -21,20 +21,26 @@
     CGRect frame = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:frame];
 
-    NSString *portraitVideoName = @"splash-iphone";
+    NSString *portraitVideoName = @"splash";
     NSString *portraitImageName = @"Default.png";
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && self.window.frame.size.height > 480) {
+        portraitImageName = @"Default-568h@2x.png";
+        portraitVideoName = @"splash-568h~iphone";
+    }
+
     NSString *landscapeVideoName = nil; // n/a
     NSString *landscapeImageName = nil; // n/a
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        portraitVideoName = @"splash-ipad";
-        portraitImageName = @"Default-Portrait~ipad.png";
-        landscapeVideoName = @"splash-ipad-landscape";
-        landscapeImageName = @"Default-Landscape~ipad.png";
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        portraitVideoName = @"splash";
+        portraitImageName = @"Default-Portrait.png";
+        landscapeVideoName = @"splash-landscape";
+        landscapeImageName = @"Default-Landscape.png";
     }
-    
+
     // our video
     NSURL *portraitUrl = [[NSBundle mainBundle] URLForResource:portraitVideoName withExtension:@"mp4"];
     NSURL *landscapeUrl = [[NSBundle mainBundle] URLForResource:landscapeVideoName withExtension:@"mp4"];
+
     // our splash controller
     XOSplashVideoController *splashVideoController = 
         [[XOSplashVideoController alloc] initWithVideoPortraitUrl:portraitUrl

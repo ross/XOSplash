@@ -17,6 +17,7 @@
     MPMoviePlayerController *_player;
     UIImageView *_playerBackground;
     UIImageView *_backgroundImageView;
+    NSString *_loadNotification;
 }
 
 @synthesize delegate = _delegate;
@@ -27,7 +28,6 @@
             landscapeImageName:(NSString *)landscapeImageName
               delegate:(NSObject<XOSplashVideoDelegate> *)delegate;
 {
-    NSLog(@"init");
     self = [super init];
     if (self) {
         _portraitUrl = portraitUrl;
@@ -41,15 +41,41 @@
     return self;
 }
 
+// from https://gist.github.com/998472
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 - (void)viewDidLayoutSubviews
 {
-    NSLog(@"viewDidLayoutSubviews");
     [super viewDidLayoutSubviews];
-    if ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait) {
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    if (orientation == UIInterfaceOrientationPortrait) {
         // this won't be called if we're in portrait button bottom, so we need to call it manually
         [self didRotateFromInterfaceOrientation:UIInterfaceOrientationPortrait];
+    } else if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")) {
+        // on iOS 6 make sure we set the rotation so the splash will start in landscape
+        [self didRotateFromInterfaceOrientation:orientation];
     }
 }
+
+#pragma mark ROTATION
+
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
@@ -60,17 +86,14 @@
     switch (toInterfaceOrientation) {
         case UIInterfaceOrientationPortrait:
         case UIInterfaceOrientationPortraitUpsideDown:
-            NSLog(@"shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation: portrait");
             return _portraitUrl && _portraitImageName;
         case UIInterfaceOrientationLandscapeLeft:
         case UIInterfaceOrientationLandscapeRight:
-            NSLog(@"shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation: landscape");
             return _landscapeUrl && _landscapeImageName;
     }
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    NSLog(@"didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation");
     
     CGRect frame = [[UIScreen mainScreen] bounds];
     UIApplication *application = [UIApplication sharedApplication];
@@ -110,10 +133,10 @@
     _backgroundImageView.userInteractionEnabled = NO;
     [window addSubview:_backgroundImageView];
 
-    _player = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    // init player without a url so we don't miss notifications from it while we're preparing it's state.
+    _player = [[MPMoviePlayerController alloc] initWithContentURL:nil];
     // video doesn't need to be shifted down
     _player.view.frame = frame;
-    _player.useApplicationAudioSession = NO;
     _player.controlStyle = MPMovieControlStyleNone;
     _player.scalingMode = MPMovieScalingModeNone;
     _player.allowsAirPlay = NO;
@@ -129,13 +152,19 @@
     }
     _player.view.userInteractionEnabled = NO;
     [_player.backgroundView addSubview:_playerBackground];
-    
+
+    // this is the default notification up through iOS 5
+    _loadNotification = MPMoviePlayerLoadStateDidChangeNotification;
+    if ([_player respondsToSelector:@selector(readyForDisplay)]) {
+        // iOS 6, listen for this notification instead
+        _loadNotification = MPMoviePlayerReadyForDisplayDidChangeNotification;
+    }
     // tell us when the video has loaded
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(splashLoadStateDidChange:)
-                                                 name:MPMoviePlayerLoadStateDidChangeNotification
+                                                 name:_loadNotification
                                                object:_player];
-    
+
     // tell us when the video has finished playing
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(splashPlaybackStateDidChange:)
@@ -143,13 +172,16 @@
                                                object:_player];
 
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+
+    [_player setContentURL:url];
+    [_player prepareToPlay];
 }
 
 - (void)splashLoadStateDidChange:(NSNotification *)notification
 {
     // we don't need this again
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:MPMoviePlayerLoadStateDidChangeNotification
+                                                    name:_loadNotification
                                                   object:_player];
 
     // the video has loaded so we can safely add the player to the window now
@@ -165,8 +197,9 @@
     [_backgroundImageView removeFromSuperview];
     _backgroundImageView = nil;
 
-    // tell the delegate that the video has loaded
-    [_delegate splashVideoLoaded:self];
+    // tell the delegate that the video has loaded, running in the background to prevent
+    // it from causing studders.
+    [_delegate performSelectorInBackground:@selector(splashVideoLoaded:) withObject:self];
 }
 
 - (void)splashPlaybackStateDidChange:(NSNotification *)notification

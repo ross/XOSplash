@@ -22,11 +22,12 @@
 @optional
 
 /** Called when the splash video has completed loading and is about
- * to play. Applications should avoid doing any "work" before this
- * call so that the splash image will switch to the splash video as
- * quickly as possible. Once this call is made the application should 
- * begin doing any heavy lifting (likely in a background thread)
- * while the video plays. In the ideal case the work would be done
+ * to play. It is called in a background thread to avoid video studders.
+ * Applications should avoid doing any "work" before this call so that
+ * the splash image will switch to the splash video as quickly as
+ * possible. Once this call is made the application should begin
+ * doing any heavy lifting (likely in a background thread) while
+ * the video plays. In the ideal case the work would be done by
  * by the time the complete call is made. */
 - (void)splashVideoLoaded:(XOSplashVideoController *)splashVideo;
 
